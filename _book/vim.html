@@ -37,7 +37,7 @@
 
 
         
-    <div class="book"  data-level="1.5.1" data-basepath="." data-revision="1415432284917">
+    <div class="book"  data-level="1.5.1" data-basepath="." data-revision="1415592758374">
     
 
 <div class="book-summary">
@@ -675,12 +675,284 @@
                 <div class="page-inner">
                 
                 
-                    <section class="normal" id="section-gitbook_5593">
+                    <section class="normal" id="section-gitbook_327">
                     
                         <h1 id="vim">VIM</h1>
+<p>life is short, we use vim.</p>
+<h2 id="why-vim">Why Vim</h2>
+<h3 id="vimer">vimer</h3>
+<p><em>更好、更强、更快、更酷，vim让你高效地完成工作，让你不用加班，让你有时间拍妹子。</em></p>
+<p><img src="http://rewt2.qiniudn.com/10-09-08-81-1.jpg" alt="用vim的"></p>
+<h3 id="not-vimer">not vimer</h3>
+<p><em>注定单身</em></p>
+<p><img src="http://rewt2.qiniudn.com/0144392928-4.jpg" alt="不用vim的"></p>
+<h2 id="">预习材料</h2>
+<p><a href="http://css42.42qu.us/school/%E7%AE%80%E6%98%8EVim%E7%BB%83%E7%BA%A7%E6%94%BB%E7%95%A5.pdf" target="_blank">简明vim练级攻略</a></p>
+<hr>
+<h2 id="vim">vim名词解释</h2>
+<h3 id="">模式</h3>
+<p>  vim有5中基本模式，分别是</p>
+<ul>
+<li><p>Normal Mode 也就是最一般的普通模式，默认进入vim之后，处于这种模式。</p>
+</li>
+<li><p>Visual Mode 一般译作可视模式，在这种模式下选定一些字符、行、多列。
+在普通模式下，可以按v进入。</p>
+</li>
+<li><p>Insert Mode
+插入模式，其实就是指处在编辑输入的状态。普通模式下，可以按i进入。</p>
+</li>
+<li><p>Select Mode
+在gvim下常用的模式，可以叫作选择模式吧。用鼠标拖选区域的时候，就进入了选择模式。
+和可视模式不同的是，在这个模式下，选择完了高亮区域后，敲任何按键就直接输入并替换选择的文本了。
+和windows下的编辑器选定编辑的效果一致。普通模式下，可以按gh进入。
+ps:这种模式好无用啊</p>
+</li>
+<li><p>Command-Line/Ex Mode
+就叫命令行模式和Ex模式吧。两者略有不同，普通模式下按冒号(:)进入Command-Line模式，可以输入各种命令，
+使用vim的各种强大功能。普通模式下按Q进入Ex模式，其实就是多行的Command-Line模式。
+ps:经常使用EX模式的都是神阶vimer</p>
+</li>
+</ul>
+<h3 id="windows">Windows/窗口</h3>
+<p>vim可以将窗口分成好多个独立的块来显示不同的文件，我们把这些块叫做窗口。当然你可以选择竖着分或者横着分，横着分的叫做split window，竖着分的叫做vsplit window。</p>
+<h3 id="tab">Tab/标签页</h3>
+<p>就像chrome的标签页一样。</p>
+<hr>
 <h2 id="">插件</h2>
-<h3 id="mr">MR</h3>
-<p>我们配置</p>
+<h3 id="vundle">Vundle插件管理器</h3>
+<p>Vundle的功能是用于安装和管理其他插件，它能够直接从github上下载并自动安装置顶的插件。其本身也托管在github上，我们可以使用下面的命令快捷的安装它。</p>
+<pre><code>git clone https://github.com/gmarik/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+</code></pre><p>然后只需要在.vimrc文件中写入要安装的插件然后在vim中运行Vundle的插件安装命令就可以自动下载安装指定的插件了。
+更详细的使用方法可参考<a href="https://github.com/gmarik/Vundle.vim/blob/master/README.md" target="_blank">Vundle的文档</a>。</p>
+<h3 id="mru">MRU最近打开的文件</h3>
+<p>MRU的功能是从底部弹出一个最近打开的插件列表，其默认启动命令是:MRU，为了使用方便我将其设为mr。</p>
+<h3 id="nerdtree">nerdtree文件目录树</h3>
+<p>  nerdtree是一个用于显示目录树的工具默认启动方式是:NERDtree，好难打的样子，所以我把它设成了nt。</p>
+<p>  关于这个插件有一个非常实用的设置是它可以忽略指定类型的文件，例如我们希望将所有的pyc或者其他没用的文件从目录树中过滤调的时候就可以使用它的这个功能，就像这样</p>
+<pre><code>let NERDTreeIgnore=[&#39;\.pyc$&#39;, &#39;\~$&#39;]
+</code></pre><p>  它在github上的readme比较渣，没有介绍什么具体的用法和功能，我这里列出一些我用过的，还有一些大家可以通过:help Nerdtree查看。</p>
+<ul>
+<li>o.......打开文件并将焦点移动到打开的文件或展开当前文件夹</li>
+<li>Enter...跟o一样</li>
+<li>go......跟o一样，但将焦点留在NerdTree</li>
+<li>t.......在新tab中打开文件</li>
+<li>T.......同t，但保留焦点</li>
+<li>i.......在一个新的 split window中打开文件</li>
+<li>gi......同i，保留焦点</li>
+<li>s.......在新的 vsplit 窗口打开文件</li>
+<li>gs......同s保留焦点</li>
+<li>O.......递归打开当前文件夹</li>
+<li>x.......关闭当前文件夹的父文件夹</li>
+<li>X.......递归关闭当前文件夹</li>
+<li>P.......跳到根目录</li>
+<li>p.......跳到当前目录的父目录</li>
+<li>q.......退出NerdTree</li>
+</ul>
+<h3 id="ctrlp">CtrlP模糊搜索文件</h3>
+<p>  CtrlP是一个用于模糊搜索文件的插件，其文档比较健全看看它的<a href="https://github.com/kien/ctrlp.vim/blob/master/readme.md" target="_blank">readme</a>就能学会其用法，而且其默认启动快捷键就是Ctrl+p。</p>
+<p>  其跟NerdTree一样，也可以在split(Ctrl+s)和vsplit(Ctrl+v)窗口以及新tab(Ctrl+t)打开文件。</p>
+<p>  还有一个使用的设置就是忽略指定类型文件，像这样</p>
+<pre><code>let g:ctrlp_custom_ignore = {
+    \&#39;file&#39; : &#39;\v\.(pyc|html\.py)$&#39;,
+    \}
+</code></pre><h3 id="agctrlsf">ag和CtrlSF</h3>
+<p>ag是一个linux下非常好用的代码搜索工具（代码在<a href="https://github.com/ggreer/the_silver_searcher" target="_blank">github上</a>需要手动安装），它可以快速搜索你的代码内容。vim的ag插件允许我们在vim中使用ag命令搜索代码，CtrlSF插件跟ag插件的不同在于前者可以显示代码的上下文，显然是CtrlSF更为强大。</p>
+<p>CtrlSF的默认命令就是:CtrlSF，然后输入要搜索的字符再敲回车。好难打，好难用，所以我设置了下面的快捷键：</p>
+<pre><code>nmap &lt;C-S&gt;f :CtrlSF
+nmap &lt;C-S&gt;o :CtrlSFOpen&lt;CR&gt;
+nmap ss :CtrlSF &lt;C-R&gt;&lt;C-W&gt;&lt;CR&gt;
+vnoremap ss y:CtrlSF &lt;C-R&gt;&quot;&lt;CR&gt;
+</code></pre><ul>
+<li>Ctrl+s+f................适用于normal模式，就跟:CtrlSF一样</li>
+<li>Ctrl+s+o................适用于normal模式，打开搜索结果的窗口</li>
+<li>ss......................适用于normal模式，搜索当前光标所在的单词</li>
+<li>ss......................适用于visual模式，搜索当前选中的文字</li>
+</ul>
+<h3 id="tpopevim-commentary-">tpope/vim-commentary 批量注释</h3>
+<p>这货可以批量注释代码，就像eclipse的Ctrl+j一样。当然你以可以使用选中再批量插入的方式开实现批量注释，但你需要按5个键(Ctrl,v,Shift,I,Est)而commentry只需三个键就可以了。</p>
+<p>首先，我们设个快捷键以及将python的注释符设为#</p>
+<pre><code>vnoremap &lt;Backspace&gt; :Commentary &lt;CR&gt;
+autocmd FileType python set commentstring=#\ %s
+</code></pre><p>这样在可视模式选中要注释的内容后可以按退格键批量注释，再次选中按退格键就解除注释。</p>
+<h3 id="supertab">supertab,补全插件</h3>
+<h3 id="syntastic">Syntastic语法检查</h3>
+<h3 id="vim-coffee-scriptcoffeescript">vim-coffee-script,CoffeeScript语法高亮</h3>
+<h3 id="makovimmako">mako.vim,mako语法高亮</h3>
+<h3 id="vim-mercenary-hg-blamediff">vim-mercenary 支持hg blame和diff</h3>
+<h3 id="vim-colors-solarized-">vim-colors-solarized 漂亮的颜色主题</h3>
+<h3 id="luochen1990rainbow-">luochen1990/rainbow 彩虹括号，匹配的括号显示为同一颜色</h3>
+<h3 id="godlygeektabular-">godlygeek/tabular 自动对齐</h3>
+<h3 id="hynekvim-python-pep8-indent-python">hynek/vim-python-pep8-indent python自动缩进</h3>
+<h3 id="indentline">indentLine垂直缩进对齐线</h3>
+<h3 id="matchtaghtml">MatchTag高亮显示匹配的html标签</h3>
+<h2 id="">移动</h2>
+<ol>
+<li>：[n] 移动光标当第n行。</li>
+<li>H,M,L 分别移动光标到当前屏幕首行，中间行和尾行。</li>
+<li>Ctrl+f和Ctrl+b向下和向上翻页，相当于pageup和pagedown。</li>
+<li>h，j，k，l向左下上右移动一个字符。</li>
+<li>f和F加字符，将光标移动到下一个或上一个该字符的位置,例如fa会将光标移动到下一个a的位置。</li>
+<li>m设定标记，`跳转到指定标记。例如可以用ma在某行设定标记，再使用`a跳转到改行。</li>
+<li>shift+左右 光标移至上/下一个单词（以空格/标点区分单词）词首。</li>
+</ol>
+<h2 id="">插入</h2>
+<ol>
+<li>a和i分别在当前字符前和后插入。</li>
+<li>A和I分别在当前行尾和行首插入。</li>
+<li>批量插入。首先在可视模式下选中要插入的行，然后按I可在选中处之前批量插入字符</li>
+</ol>
+<h2 id="">复制，粘贴和替换</h2>
+<ol>
+<li>r可以替换当前字符。</li>
+<li>yy和dd可以分别复制和剪切当前行。</li>
+<li>y2y和d2d可以分别复制和剪切当前行开始的2行。</li>
+<li>:3,8y和:3,8d可以分别复制和剪切第3到第8行。</li>
+<li>yw和dw可以分别复制和剪切光标所在的单词。</li>
+</ol>
+<h2 id="">分屏相关</h2>
+<ol>
+<li>:vsp和:sp分别竖着和横着分割当前窗口。</li>
+<li>Ctrl + v和Ctrl + s也可以竖向和横向分屏。</li>
+<li>Ctrl + w + 箭头键（hjkl）在不同窗口键移动。</li>
+<li>Ctrl + = 将所有的窗口大小调成相同大。</li>
+</ol>
+<h2 id="">查找和替换</h2>
+<ol>
+<li>/ + 要搜索的内容搜索。</li>
+<li>n和N跳到下一个或上一个搜索结果。</li>
+<li># 搜索当前光标所在的单词。</li>
+</ol>
+<h2 id="">折叠代码</h2>
+<ol>
+<li>zc,zC,zo,zO折叠或打开折叠当前行的代码，其中大写Z和O表示折叠或打开折叠所有层。</li>
+<li>zn,zm折叠或打开折叠当前文件的所有代码。</li>
+</ol>
+<h2 id="">定制的快捷键</h2>
+<p>map <C-F11> :call FormartSrc()<CR>
+map <F11> :call FormartSrc()<CR>
+map <F12> :call RunSrc()<CR>
+map! <F12> :call RunSrc()<CR></p>
+<p>&quot;调整窗口大小
+map <F5> :vertical res+1<CR>
+map <F6> :vertical res-1<CR>
+map <F7> :res+1<CR>
+map <F8> :res-1<CR></p>
+<p>&quot;ag搜索
+nmap <C-S>f :CtrlSF
+nmap <C-S>o :CtrlSFOpen<CR>
+nmap ss :CtrlSF <C-R><C-W><CR>
+vnoremap ss y:CtrlSF <C-R>&quot;<CR>
+vnoremap <C-Tab> :Tabularize <C-R><C-W><CR>
+vnoremap <Backspace> :Commentary <CR></p>
+<p>nmap nt :NERDTree<cr>
+nmap mr :MRU<cr>
+nmap tl :TlistToggle<cr>
+nmap bn :bn<cr>
+nmap bp :bp<cr></p>
+<h2 id="">其他</h2>
+<ol>
+<li>u和CTRL+r分别是undo和redo的功能。</li>
+</ol>
+<ul>
+<li>i insert 输入</li>
+<li>v 行选中</li>
+<li>ctrl+v 列选中</li>
+<li>:q 未修改退出</li>
+<li>:q! 强制不保存退出</li>
+<li>:x / :wq 保存并退出</li>
+<li>J 合并多行</li>
+<li>d 删除当前所选</li>
+<li>dd 删除多行并存在剪贴板中（剪切）</li>
+<li>y 复制当前所选</li>
+<li>p 粘贴</li>
+<li>w 光标移动到下一个单词处</li>
+<li>b 光标移动到上一个单词处</li>
+<li>^ 光标移动到行首</li>
+<li>$ 光标移动到行尾</li>
+<li>shift+上下键 翻页</li>
+<li>F12 运行当前文件
+*</li>
+<li>:set paste 进入粘贴模式</li>
+<li>:%s/target/something/g 替换全部 target 字段</li>
+</ul>
+<h1 id="vim-">Vim 实用技巧</h1>
+<h2 id="">快速注释大量代码</h2>
+<pre><code>情景：
+
+假设我们有一段代码
+
+.. code-block:: python
+    :linenos:
+
+    a = 1
+    b = 2
+    # 若干行...
+
+现在我们把他们全都注释掉：
+
+.. code-block:: python
+    :linenos:
+
+    # a = 1
+    # b = 2
+    # # 若干行...
+
+操作步骤如下：
+
+#. 光标停在要开始缩进的那一行（即 a = 1 ）
+
+#. 键入 Ctrl+V ，vim 左下角显示“ -- VISUAL BLOCK -- ”
+
+#. 使用j k按键调整位置，直到选中所需代码区域
+
+#. 键入 Shift + i进入插入模式，左下角显示“ -- INSERT -- ”
+
+#. 输入 #
+
+#. 按下 ESC，完成
+
+那如果我们又想要把这段代码改回来呢？
+
+#. 键入 Ctrl+V
+
+#. 用 j k h l 四个按键调整位置，选中预想位置
+
+#. 按 delete
+</code></pre><h2 id="">快速缩进/反缩进代码</h2>
+<pre><code>假设还是这段代码：
+
+.. code-block:: python
+    :linenos:
+
+    a = 1
+    b = 2
+    # 若干行...
+
+现在我们要给它加个判断，变成这样：
+
+.. code-block:: python
+    :linenos:
+
+    if time &gt; 1:
+        a = 1
+        b = 2
+        # 若干行...
+
+那么如何快速做到这一点呢？
+
+步骤如下：
+
+#. 键入 Ctrl+V
+
+#. 用 j k 调整位置，使选中所需区域
+
+#. 键入 &quot;&gt;&quot; (即shift + .)
+
+如果想要反缩进也很简单，前两步同上，第三步键入 &quot;&lt;&quot; 就可以了。
+</code></pre><p><a href="http://segmentfault.com/q/1010000000166577" target="_blank">http://segmentfault.com/q/1010000000166577</a>
+文字</p>
+<p>vim-multiple-cursors Sublime Text 支持多个光标选择功能，在重构时非常有用。这个插件将 Sublime Text 中的这个邪恶功能引入了 Vim。想要修改变量名时，只需要将光标放在变量名内，然后多次敲击 Ctrl + n，即可将多个同名变量选中，此时再按 s 就能同时将这些变量重命名了。</p>
+<p><a href="http://doc.42qu.com/school/vim.html?highlight=vim" target="_blank">http://doc.42qu.com/school/vim.html?highlight=vim</a></p>
 
                     
                     </section>
