@@ -55,7 +55,7 @@ http://linuxwiki.github.io/Services/Docker.html#62docker0-ip
 
 docker export bb6ce0f8e59c |bzip2 -c > 42.tar.bz2
 
-sudo iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 80 -j DNAT --to 172.17.0.17:80
+sudo iptables -t nat -A PREROUTING -i eth0 -p tcp --dport 8000 -j DNAT --to 172.17.0.17:8000
 
 
 mysql 密码 42web

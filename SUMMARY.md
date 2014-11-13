@@ -1,6 +1,7 @@
 # Summary
 
 * [写在故事的开始](README.md)
+   * [newbie](newbie.md)
 * [实用工具](README.md)
    * [Windows](windows.md)
        * [Xshell](xshell.md)
@@ -16,6 +17,7 @@
        * [docker](docker.md)
        * [ncdu - 磁盘占用分析](ncdu_-.md)
        * [watch - 不断运行 ， 监控输出](watch.md)
+       * [tar](tar.md)
    * [编辑器](.)
        * [VIM](vim.md)
        * [Subline](subline.md)
@@ -24,10 +26,12 @@
 * [前端](web_front_site.md)
    * [svg](svg.md)
    * [常用网站](site.md)
-   * [avalon](avalon)
+   * [avalon](avalon.md)
+   * [常用工具](tool)
 * [搜索](search/README.md)
    * [jieba - 结巴分词](search/jieba_-.md)
 * [开发流程管理](search/admin.md)
    * [程序员评级与待遇草案](search/pay.md)
+* [项目计划](-_windows/todo_list.md)
 * [关于我们](-_windows/README.md)
 
