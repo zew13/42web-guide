@@ -79,6 +79,15 @@ sudo /etc/init.d/sshd start
 web@97510668315a ~/ac/zapp/TECH2IPO $ ./dev.sh
 
 
+## Tips
+时区同步问题：
+
+    $ sudo ntpclient -s -h de.pool.ntp.org
+    $ sudo ntpd  -p de.pool.ntp.org
+
+
+
+
 brew install dnsmasq
 
 brew install dnsmasq
