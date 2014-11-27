@@ -6,7 +6,7 @@ Docker Development Environment Guide
 Mac OS:
 * [Homebrew link](http://brew.sh/)
 * [Docker link](http://www.docker.com)
-* Dnsmamq
+* Dnsmasq
 
 ### 如何安装:
 
@@ -27,7 +27,18 @@ Install Homebrew, 在Terminal中运行:
 中文翻译版本:
 [中文](http://www.widuu.com/chinese_docker)
 
-### Dnsmamq
+### Dnsmasq
+
+    brew install dnsmasq
+
+设置开机启动
+
+    sudo launchctl load /Library/LaunchDaemons/homebrew.mxcl.dnsmasq.plist
+
+配置 Dnsmasq
+
+    cp /usr/local/opt/dnsmasq/dnsmasq.conf.example /usr/local/etc/dnsmasq.conf
+
 
 参考 2.4.5 docker
 

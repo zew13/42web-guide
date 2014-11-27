@@ -2,11 +2,13 @@
 
 Bitbucket
 ---------
-注册bitbucket 账号: https://bitbucket.org/
+注册bitbucket
+账号: https://bitbucket.org/
 
 fengche
 --------
-注册 fengche: https://fengche.com/
+注册 fengche:
+https://fengche.com/
 
 沟通 slack:
 ----------

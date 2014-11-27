@@ -7,11 +7,13 @@
 
 ## MAC使用
 mac用iterm运行
-boot2docker ssh
+
+    $ boot2docker ssh
 可以进入虚拟机
 
 重启mac以后需要先
-book2docker start
+
+    $ book2docker start
 
 
 ## windows使用
@@ -22,20 +24,21 @@ book2docker start
 
 从镜像文件新建一个虚拟机
 
-docker run -t -i -p 80:80 -p 2200:22 --name 42web zuroc/42web /bin/bash
+    $ docker run -t -i -p 80:80 -p 2200:22 --name 42web zuroc/42web /bin/bash
 
 ifconfig可以看到docker母机的ip
 
 
 重新进入一个虚拟机
-docker start -i 42web
+
+    $ docker start -i 42web
 
 浏览所有虚拟机
-docker ps -a
 
-docker rm $(docker ps -q -a)
+    $ docker ps -a
 
 一次性删除所有的容器
+    $ docker rm $(docker ps -q -a)
 
 docker rmi $(docker images -q)
 一次性删除所有的镜像。
