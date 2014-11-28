@@ -20,15 +20,22 @@ book2docker start
 
 ## 基本用法
 
+
+
 从镜像文件新建一个虚拟机
 
-docker run -t -i -p 80:80 -p 2200:22 --name 42web zuroc/42web /bin/bash
+docker run -t -i -p 80:80 -p 2200:22 --name 42 6e469ec45c90 /bin/bash
+
+docker run -d -p 80:80 -p 2222:22 --name 42 zuroc/42web /usr/sbin/sshd -D
+
+
+
 
 ifconfig可以看到docker母机的ip
 
 
 重新进入一个虚拟机
-docker start -i 42web
+docker start -i 42
 
 浏览所有虚拟机
 docker ps -a
@@ -39,6 +46,12 @@ docker rm $(docker ps -q -a)
 
 docker rmi $(docker images -q)
 一次性删除所有的镜像。
+
+docker commit  37a3eb81fb77 zuroc/42web
+保存一个虚拟机为镜像
+docker export 42 | xz -c > 42.txz
+
+rsync -avhP docker.txz root@42py.com:/data
 
 docer export 对应
 
