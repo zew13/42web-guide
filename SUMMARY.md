@@ -2,6 +2,12 @@
 
 * [写在故事的开始](README.md)
    * [newbie](newbie.md)
+* [开始](start/start.md)
+   * [注册用户](start/Register.md)
+   * [环境安装](start/environment.md)
+   * [环境配置](start/configuration.md)
+   * [代码规范](start/code_quality.md)
+   * [程序结构](start/code_structure.md)
 * [实用工具](README.md)
    * [Windows](windows.md)
        * [Xshell](xshell.md)
