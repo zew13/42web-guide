@@ -10,7 +10,7 @@ B： 外网：196.114.23.12
 ```
 这里我们需要实现反向隧道：修改`/etc/ssh/sshd_config`中的   ` GatewayPorts  yes `, 然后重启` /etc/init.d/sshd restart`。
 
-
+    $ ssh -Nf -R 12306:localhost:22 user1@196.114.23.12
     $ autossh -M 5678 -N -R 6000:localhost:22 user1@196.114.23.12
 
 -M 5678参数，负责通过5678端口监视连接状态，连接有问题时就会  自动重连。
@@ -27,6 +27,9 @@ B： 外网：196.114.23.12
 首先在内网服务器安装好nginx服务。
 
 内网服务器配置方法：
+
+    # ssh -Nf -R 4000:localhost:80 user1@196.114.23.12
+的一种采用ssh 后台运行。第二种是自动重启。
 
     $ autossh -M 5656 -N -R 4000:localhost:80 user1@196.114.23.12
 
